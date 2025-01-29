@@ -11,6 +11,39 @@ public class UserRequestDto {
     private String email;
     @NotNull
     private String phoneNumber;
+    @NotNull(message = "name can't be blank")
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public UserRequestDto(String email, String phoneNumber, String name) {
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.name = name;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
 
 }
 /*
@@ -31,5 +64,13 @@ Aap sirf important fields (jaise id, name, email) ko DTO ke through bhejte ho. Y
 Agar aapko ek user ke saath uski books aur transactions ki bhi zarurat hai, toh aap eager loading ya ek aise query likhte ho jo user ke saath books aur transactions dono ek hi call me fetch kar le. Isse multiple network calls se bach jaata hai.
 
 
+
+Frontend se UserRequestDto aata hai (registration form).
+
+Controller ise Service layer ko forward karta hai.
+
+Service layer ise database mein save karta hai aur UserResponseDto banata hai.
+
+UserResponseDto frontend ko bheja jata hai (membership card).
 
  */
