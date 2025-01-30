@@ -1,5 +1,13 @@
 package com.Library.LibraryManagmentSystem.model;
 
+
+import lombok.*;
+
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+
 public class AuthorCompositeKey {
     private String email;
     private String name;
